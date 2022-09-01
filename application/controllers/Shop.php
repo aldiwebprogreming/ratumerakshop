@@ -69,6 +69,12 @@
 			echo count($display);
 		}
 
+		function cart2(){
+			
+			$display = $this->cart->contents();
+			echo count($display);
+		}
+
 		function tampil_cart(){
 			$data['cart'] = $this->cart->contents();
 			$this->load->view('shop/tampil_cart', $data);
@@ -136,6 +142,12 @@
 
 			if ($update == true) {
 
+				$alamat = $this->input->post('alamat');
+				if ($alamat == null) {
+					$alamat = '';
+				}else{
+					$alamat = $this->input->post('alamat');
+				}
 
 				$data = [
 
@@ -144,14 +156,15 @@
 					'wa' => $this->input->post('wa'),
 					'tgl_pengantaran' => $this->input->post('tgl_pengantaran'),
 					'sistem_pengambilan' => $this->input->post('sistem_pengambilan'),
-					'alamat_pengantaran' => $this->input->post('alamat'),
+					'alamat_pengantaran' => $alamat,
+					'jumlah_pembayaran' => $total_pembayaran,
 					'status_pembayaran' => 0
 				];
 
 				$this->db->insert('tbl_checkout', $data);
 				$this->hapus();
 				$this->session->set_flashdata('message', 'swal("Yess", "Checkout anda berhasil", "success" );');
-				redirect('shop/index');
+				redirect('shop/order');
 			}
 
 
@@ -229,7 +242,18 @@
 
 		}
 
-		function pembayaran(){
+		function pembayaran($kode_order){
+			$data['cart'] = $this->cart->contents();
+			$data['bayar'] = $this->db->get_where('tbl_checkout',['kode_order' => $kode_order])->row_array();
+			$this->load->view('template/header');
+			$this->load->view('shop/pembayaran',$data);
+			$this->load->view('template/footer');
+
+		}
+
+		function konfirmasi_pembayaran($kode_order){
+
+
 
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('kode_order', 'kode order', 'required');
@@ -237,34 +261,61 @@
 			$this->form_validation->set_rules('bank_pengirim', 'bank pengirim', 'required');
 			$this->form_validation->set_rules('nama_rekening', 'nama rekening', 'required');
 			$this->form_validation->set_rules('jumlah_pembayaran', 'jumlah pembayaran', 'required');
-			$this->form_validation->set_rules('bukti', 'image', 'required');
+			
 
 			if ($this->form_validation->run() == false) {
 
+
+				$data['order'] = $this->db->get_where('tbl_checkout',['kode_order' => $kode_order])->row_array();
+
 				$this->load->view('template/header');
-				$this->load->view('shop/pembayaran');
+				$this->load->view('shop/konfirmasi_pembayaran',$data);
 				$this->load->view('template/footer');
 
 			}else{
 
-				$data = [
+				$config['upload_path']          = './assets/bukti/';
+				$config['allowed_types']        = 'jpg|png|jpeg';
+				$config['min_size']             = 9000000;
+				$config['remove_spaces']        = false;
 
-					'kode_user' => $this->session->kode_user,
-					'kode_order' => $this->input->post('kode_order'),
-					'tgl_pembayaran' => $this->input->post('tgl_pembayaran'),
-					'bank_pengirim' => $this->input->post('bank_pengirim'),
-					'nama_rekening' => $this->input->post('nama_rekening'),
-					'jumlah_pembayaran' => $this->input->post('jumlah_pembayaran'),
-					'pesan' => $this->input->post('pesan_tambahan'),
-					'bukti_pembayaran' => $this->input->post('bukti'),
-					'status' => 0,
-					
-				];
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('bukti')){
+					$error = array('error' => $this->upload->display_errors());
+					$this->session->set_flashdata('message', 'swal("Ops!!", "format gambar tidak sesuai", "warning" );');
+					redirect("shop/pembayaran/$kode_order");
 
-				$this->db->insert('tbl_bukti_pembayaran', $data);
+				}else{
+
+					$cek_konfirmasi = $this->db->get_where('tbl_bukti_pembayaran',['kode_order' => $kode_order])->row_array();
+
+					if ($cek_konfirmasi == true) {
+
+						$this->session->set_flashdata('message', 'swal("Ops!", "konfirmasi pembayaran sudah pernah dilakukan", "error" );');
+						redirect("shop/pembayaran/$kode_order");
+
+					}
+
+					$data = [
+
+						'kode_user' => $this->session->kode_user,
+						'kode_order' => $this->input->post('kode_order'),
+						'tgl_pembayaran' => $this->input->post('tgl_pembayaran'),
+						'bank_pengirim' => $this->input->post('bank_pengirim'),
+						'nama_rekening' => $this->input->post('nama_rekening'),
+						'jumlah_pembayaran' => $this->input->post('jumlah_pembayaran'),
+						'pesan' => $this->input->post('pesan_tambahan'),
+						'bukti_pembayaran' => $_FILES['bukti']['name'],
+						'status' => 0,
+
+					];
+
+					$this->db->insert('tbl_bukti_pembayaran', $data);
+
+				}
 
 				$this->session->set_flashdata('message', 'swal("Yess!", "data berhasil dikirim", "success" );');
-				redirect('shop/pembayaran');
+				redirect("shop/index");
 
 			}
 
@@ -292,6 +343,21 @@
 				}
 			}
 		}
+
+
+		function join(){
+			
+			$this->db->select('*');
+			$this->db->from('tbl_order');
+			$this->db->join('tbl_checkout', 'tbl_checkout.kode_order = tbl_order.kode_order');
+			$query = $this->db->get()->result_array();
+
+			var_dump($query);
+
+
+		}
+
+		
 	}
 
 ?>

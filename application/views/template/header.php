@@ -112,16 +112,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
-                <li class="nav-item">
+               <!--  <li class="nav-item">
                     <a class="nav-link" href="#">Product</a>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Pages</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Product</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="products.html">Products</a>
-                        <a class="dropdown-item" href="product-detail.html">Product Detail</a>
-                        <a class="dropdown-item" href="cart.html">Cart</a>
-                        <a class="dropdown-item" href="checkout.html">Checkout</a>
+                        <a class="dropdown-item" href="#">Beras Premium</a>
+                        <a class="dropdown-item" href="#">Beras Medium</a>
+                        <a class="dropdown-item" href="#">Beras Healthy</a>
+                        <a class="dropdown-item" href="#"> Beras Glutinous</a>
                     </div>
                 </li>
             </ul>

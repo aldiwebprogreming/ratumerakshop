@@ -51,4 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'shop';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = true;
+$route['shop/pembayaran/(:any)'] = 'shop/pembayaran/$1';
+$route['shop/konfirmasi_pembayaran/(:any)'] = 'shop/konfirmasi_pembayaran/$1';

@@ -1,3 +1,44 @@
+
+
+
+<<!-- a href="http://yukchat.us/ampuh">
+    <div class="cart">
+        <div style="height: 30px; width: 30px; background-color: black; border-radius: 50px;">
+            <h5 style="" id="tampil_data_footer" class="text-white" style="font-weight: bold;">
+                <?=  count($this->cart->contents()); ?>
+            </h5>
+        </div>
+    </div>
+    <img src="<?= base_url('assets/img/brand/cart.png') ?>" class="wabutton" alt="WhatsApp-Button">
+
+</a>
+<style>
+    .wabutton{
+        width:70px;
+        height:70px;
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        z-index:100;
+    }
+</style>
+
+<style>
+    .cart{
+        width:70px;
+        height:70px;
+        position:fixed;
+        bottom:20px;
+        right:35px;
+        z-index:1000;
+        text-align: center;
+        font-weight: bold;
+
+    }
+</style> -->
+
+
+
 <section class="mobile-apps pt-5 pb-3 border-top">
     <div class="container">
         <div class="row">

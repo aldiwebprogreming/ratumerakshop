@@ -12,7 +12,7 @@
         <!--  <img src="<?= base_url('assets/img/brand/logo.png') ?>" class="img-fluid" alt="Responsive image"> -->
         <br>
     <?php }else{ ?>
-
+<!-- 
         <div class="alert alert-dark" role="alert">
           Silahkan isi form data diri dengan data yang sebenar-benarnya, karena alamat pengiriman akan di kirimkan berdasarkan data yang anda isikan.
 
@@ -21,7 +21,7 @@
           Pembayaran hanya dilakukan melalui rekening
           ini : <label style="color: orange; font-weight: bold;">BCA 647577111
           a/n PT SINAR ANEKA NIAGA.</label>
-      </div>
+      </div> -->
       <form method="post" action="<?= base_url('shop/checkout') ?>">
           <div class="row">
 
@@ -124,10 +124,16 @@
 
 
 
-<div class="form-group">
+<div class="form-group" id="alamat" style="display: none;">
     <label for="exampleInputEmail1">Alamat Pengantaran</label>
-    <textarea class="form-control" placeholder="Kota medan kecamatan medan" name="alamat" required=""></textarea>
-    <small id="emailHelp" class="form-text text-muted">Masukan alamat lengkap pengataran.</small>
+    <textarea class="form-control" placeholder="Kota medan kecamatan medan" name="alamat"></textarea>
+    <small id="emailHelp" class="form-text text-muted">Masukan alamat lengkap pengataran anda.</small>
+</div>
+
+<div class="form-group" id="alamat_jemput" style="display: none;">
+    <label for="exampleInputEmail1">Alamat Penjemputan</label>
+    <textarea class="form-control" placeholder="Kota medan kecamatan medan" name="alamat_jemput" readonly>Jl. Setia Ujung No.38, Puji Mulyo, Kec. Sunggal, Kabupaten Deli Serdang, Sumatera Utara 20351</textarea>
+    <small id="emailHelp" class="form-text text-muted">Alamat penjemputan sudah tertera di google maps dengan kata kunci PT.sinar aneka niaga.</small>
 </div>
 
 </div>
@@ -249,16 +255,17 @@
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass" required>
     </div>
-    <div class="form-check">
+    <!-- <div class="form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
+    </div> -->
+    <p class="float-left">Belum punya akun ? <a href="<?=base_url('auth/register') ?>">Daftar sekarang</a></p>
     
 
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary ">Login <i class="fa fa-user"></i></button>
+
+    <button type="submit" class="btn btn-primary btn-block ">Login <i class="fa fa-user"></i></button>
 </div>
 </form>
 </div>
@@ -275,31 +282,35 @@
             var val = $(this).val();
             if (val == 'Sistem Jemput') {
 
-                $("#readjemput").show();
-                $("#readantar").hide();
+             $("#alamat").hide();
+             $("#alamat_jemput").show();
 
-                $("#filtertgl").show();
+             $("#readjemput").show();
+             $("#readantar").hide();
 
-
-            }else if(val == 'Sistem Antar'){
-
-
-
-                $("#readjemput").hide();
-                $("#readantar").show();
-
-                $("#filtertgl").show();
-            }else{
+             $("#filtertgl").show();
 
 
-              $("#readjemput").hide();
-              $("#readantar").hide();
+         }else if(val == 'Sistem Antar'){
 
-              $("#filtertgl").hide();
+            $("#alamat").show();
+            $("#alamat_jemput").hide();
+
+            $("#readjemput").hide();
+            $("#readantar").show();
+
+            $("#filtertgl").show();
+        }else{
 
 
-          }
-      })
+          $("#readjemput").hide();
+          $("#readantar").hide();
+
+          $("#filtertgl").hide();
+
+
+      }
+  })
 
     })
 </script>

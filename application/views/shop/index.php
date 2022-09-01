@@ -27,16 +27,16 @@ SLIDER
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="<?= base_url('') ?>/assets/img/slides/slidebaru1.png" alt="First slide">
                                 <div class="carousel-caption d-none d-md-block">
-                                 <!--  <h5>Mountains, Nature Collection</h5> -->
-                             </div>
-                         </div>
-                         <div class="carousel-item">
+                                   <!--  <h5>Mountains, Nature Collection</h5> -->
+                               </div>
+                           </div>
+                           <div class="carousel-item">
                             <img class="d-block w-100" src="<?= base_url('') ?>/assets/img/slides/slidebaru2.png" alt="Second slide">
                             <div class="carousel-caption d-none d-md-block">
-                             <!--  <h5>Freedom, Sea Collection</h5> -->
-                         </div>
-                     </div>
-                     <div class="carousel-item">
+                               <!--  <h5>Freedom, Sea Collection</h5> -->
+                           </div>
+                       </div>
+                       <div class="carousel-item">
                         <img class="d-block w-100" src="<?= base_url('') ?>/assets/img/slides/slidebaru3.png" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
                             <!-- <h5>Living the Dream, Lost Island</h5> -->
@@ -123,8 +123,8 @@ SLIDER
                             </center>
                         </div>
                         <div class="product-content">
-                         <p class="text-center"><?= $data['nama_produk'] ?></p>
-                         <center>
+                           <p class="text-center"><?= $data['nama_produk'] ?></p>
+                           <center>
                             <small><i><?= $data['nama_kategori'] ?></i></small>
                         </center>
                         <div class="product-price">
@@ -170,8 +170,10 @@ SLIDER
                         var harga1 = $("#harga<?= $data['kode_produk'] ?>").val();
 
                         var url = "<?= base_url('shop/cart?kode_produk=') ?>"+kode_produk1+"&harga="+harga1+"&qty="+qty1;
-
+                        var url2 = "<?= base_url('shop/cart2') ?>";
                         $("#tampil_data").load(url);
+                        $("#tampil_data_footer").load(url2);
+
                         alert('Produk barhasil ditambah kekeranjang');
                     })
 
