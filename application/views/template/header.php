@@ -107,10 +107,10 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="<?= base_url('shop/') ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="<?= base_url('shop/abaout') ?>">About</a>
                 </li>
                <!--  <li class="nav-item">
                     <a class="nav-link" href="#">Product</a>

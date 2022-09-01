@@ -27,6 +27,13 @@
 			$this->load->view('template/footer');
 		}
 
+		function abaout(){
+
+			$this->load->view('template/header');
+			$this->load->view('shop/abaout');
+			$this->load->view('template/footer');
+		}
+
 		function add_cart(){
 			$this->load->library('cart');
 			$nama_produk = $this->input->post('nama');
