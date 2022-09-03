@@ -1,7 +1,7 @@
 
 
 
-<<!-- a href="http://yukchat.us/ampuh">
+<!-- a href="http://yukchat.us/ampuh">
     <div class="cart">
         <div style="height: 30px; width: 30px; background-color: black; border-radius: 50px;">
             <h5 style="" id="tampil_data_footer" class="text-white" style="font-weight: bold;">
@@ -166,6 +166,7 @@
 <!-- Main JS-->
 <script src="<?= base_url('') ?>/assets/js/main.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <?php echo "<script>".$this->session->flashdata('message')."</script>"?>
 
 <script>
@@ -175,6 +176,25 @@
             $("#tampil_cart").load(url);
         })
     })
+</script>
+
+<script>
+   $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:3
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
 </script>
 
 </body>

@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = true;
 $route['shop/pembayaran/(:any)'] = 'shop/pembayaran/$1';
 $route['shop/konfirmasi_pembayaran/(:any)'] = 'shop/konfirmasi_pembayaran/$1';
+$route['shop/detail/(:any)'] = 'shop/detail/$1';

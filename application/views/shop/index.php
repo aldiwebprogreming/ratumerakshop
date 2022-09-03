@@ -117,7 +117,7 @@ SLIDER
                     <div class="single-product">
                         <div class="product-img">
                             <center>
-                                <a href="product-detail.html">
+                                <a href="<?= base_url('shop/detail/') ?><?= $data['kode_produk'] ?>">
                                     <img src="<?= base_url('') ?>/assets/img/products/<?= $data['gambar'] ?>" class="img-fluid" />
                                 </a>
                             </center>

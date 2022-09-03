@@ -34,6 +34,28 @@
 			$this->load->view('template/footer');
 		}
 
+		function detail($produk){
+
+
+			$this->db->select('*');
+			$this->db->from('tbl_produk');
+			$this->db->join('tbl_kategori', 'tbl_kategori.kode_kategori = tbl_produk.kategori');
+			$this->db->where('kode_produk', $produk);
+			$data['det'] = $this->db->get()->row_array();
+
+			$this->db->select('*');
+			$this->db->from('tbl_produk');
+			$this->db->join('tbl_kategori', 'tbl_kategori.kode_kategori = tbl_produk.kategori');
+			$data['produk'] = $this->db->get()->result_array();
+
+			// $data['det'] = $this->db->get_where('tbl_produk',['kode_produk' => $produk])->row_array();
+			// $data['kategori'] = $this->db->get_where('tbl_kategori',['kode_kategori' => $data['det']]['kategori'])->row_array();
+			$this->load->view('template/header');
+			$this->load->view('shop/detail', $data);
+			$this->load->view('template/footer');
+
+		}
+
 		function add_cart(){
 			$this->load->library('cart');
 			$nama_produk = $this->input->post('nama');
