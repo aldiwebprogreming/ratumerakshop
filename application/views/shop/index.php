@@ -142,7 +142,7 @@ SLIDER
                                     <input type="hidden" name="nama_kategori" id="nama_kategori<?= $data['kode_produk'] ?>" value="<?= $data['nama_kategori'] ?>">
                                     <input type="hidden" name="harga" id="harga<?= $data['kode_produk'] ?>" value="<?= $data['harga'] ?>">
                                 </form>
-                                <button type="button" id="addcart<?= $data['kode_produk'] ?>" class="btn btn-primary btn-sm btn-block" data-toggle="modal" data-target="#exampleModal<?= $data['kode_produk'] ?>">
+                                <button type="button" id="addcart<?= $data['kode_produk'] ?>" class="btn btn-primary btn-sm btn-block addcart" data-toggle="modal" data-target="#exampleModal<?= $data['kode_produk'] ?>">
                                     Add to cart
                                 </button>
                             </center>
@@ -174,7 +174,7 @@ SLIDER
                         $("#tampil_data").load(url);
                         $("#tampil_data_footer").load(url2);
 
-                        alert('Produk barhasil ditambah kekeranjang');
+
                     })
 
 
@@ -190,10 +190,34 @@ SLIDER
 
 <!-- <div class="tampil_data">
 
+    ere
+
 </div>
 -->
+
+<button class="swalDefaultSuccess">klik</button>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+
+<script>
+    $(function() {
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+      });
+
+        $('.addcart').click(function() {
+          Toast.fire({
+            icon: 'success',
+            title: 'Produk berhasil masuk kekeranjang'
+        })
+      });
+
+    });
+</script>
+</script>
 
 
 
