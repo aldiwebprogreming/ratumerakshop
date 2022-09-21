@@ -21,27 +21,27 @@
             </div>
 
             <div class="col-sm-6">
-               <h5><?= $det['nama_produk'] ?></h5>
-               <p style="font-style: italic;"><?= $det['nama_kategori'] ?></p> 
-               <p><?= 'Rp '. number_format($det['harga'],0,',','.') ?></p>
-               <p><?= $det['ket'] ?></p>
-               <p>
+             <h5><?= $det['nama_produk'] ?></h5>
+             <p style="font-style: italic;"><?= $det['nama_kategori'] ?></p> 
+             <p style="font-weight: bold;"><?= 'Rp '. number_format($det['harga'],0,',','.') ?></p>
+             <p><?= $det['ket'] ?></p>
+             <p>
                 Qty
                 <select id="qty<?= $det['kode_produk'] ?>">
-                   <option>1</option>
-                   <option>2</option>
-                   <option>3</option>
-                   <option>4</option>
-                   <option>5</option>
-               </select>
-               <input type="hidden" name="nama_produk" id="nama_produk<?= $det['kode_produk'] ?>" value="<?= $det['nama_produk'] ?>">
-               <input type="hidden" name="nama_kategori" id="nama_kategori<?= $det['kode_produk'] ?>" value="<?= $det['nama_kategori'] ?>">
-               <input type="hidden" name="harga" id="harga<?= $det['kode_produk'] ?>" value="<?= $det['harga'] ?>">
-           </p>
-           <button id="addcart<?= $det['kode_produk'] ?>" class="btn btn-primary btn-block">Order</button>
-           <a href="<?= base_url('shop/') ?>" class="btn btn-success btn-block">Kembali</a>
-       </div>
-   </div>
+                 <option>1</option>
+                 <option>2</option>
+                 <option>3</option>
+                 <option>4</option>
+                 <option>5</option>
+             </select>
+             <input type="hidden" name="nama_produk" id="nama_produk<?= $det['kode_produk'] ?>" value="<?= $det['nama_produk'] ?>">
+             <input type="hidden" name="nama_kategori" id="nama_kategori<?= $det['kode_produk'] ?>" value="<?= $det['nama_kategori'] ?>">
+             <input type="hidden" name="harga" id="harga<?= $det['kode_produk'] ?>" value="<?= $det['harga'] ?>">
+         </p>
+         <button id="addcart<?= $det['kode_produk'] ?>" class="btn btn-primary btn-block">Order</button>
+         <a href="<?= base_url('shop/') ?>" class="btn btn-success btn-block">Kembali</a>
+     </div>
+ </div>
 </div>
 </section>
 
@@ -53,8 +53,8 @@
               <div> 
                 <div class="card">
                     <a href="<?= base_url('shop/detail/') ?><?= $data['kode_produk'] ?>">
-                       <img src="<?= base_url('') ?>/assets/img/products/<?= $data['gambar'] ?>" class="img-fluid" />
-                       <div class="card-body">
+                     <img src="<?= base_url('') ?>/assets/img/products/<?= $data['gambar'] ?>" class="img-fluid" />
+                     <div class="card-body">
                         <p class="card-title"><?=  $data['nama_produk'] ?></p>
                         <!--  <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     </div>
