@@ -195,7 +195,7 @@ SLIDER
 </div>
 -->
 
-<button class="swalDefaultSuccess">klik</button>
+
 </section>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
 
