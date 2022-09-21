@@ -8,11 +8,11 @@ SLIDER
                     <nav class="nav-category">
                         <h2>Categories</h2>
                         <ul class="menu-category">
-                            <li><a href="#">Premium Rice</a></li>
-                            <li><a href="#">Medium Rice</a></li>
-                            <li><a href="#">Healthy Rice</a></li>
-                            <li><a href="#">Glutinous Rice</a></li>
-                            <li><a href="#">Spesial Promo Product</a></li>
+                            <li><a href="<?= base_url('shop/produk/premium-rice') ?>">Premium Rice</a></li>
+                            <li><a href="<?= base_url('shop/produk/medium-rice') ?>">Medium Rice</a></li>
+                            <li><a href="<?= base_url('shop/produk/healthy-rice') ?>">Healthy Rice</a></li>
+                            <li><a href="<?= base_url('shop/produk/glutinous-rice') ?>">Glutinous Rice</a></li>
+                            <li><a href="<?= base_url('shop/produk/spesial-promo-product') ?>">Spesial Promo Product</a></li>
                         </ul>
                     </nav>
                 </div>

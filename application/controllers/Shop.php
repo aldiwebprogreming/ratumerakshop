@@ -373,6 +373,25 @@
 			}
 		}
 
+		function produk($slug){
+			$kate = $this->db->get_where('tbl_kategori',['slug' => $slug])->row_array();
+			// $data['produk'] = $this->db->get_where('tbl_produk',['kategori' => $kate['kode_kategori']])->result_array();
+
+			$this->db->select('*');
+			$this->db->from('tbl_produk');
+			$this->db->where('kategori', $kate['kode_kategori']);
+			$this->db->join('tbl_kategori', 'tbl_kategori.kode_kategori = tbl_produk.kategori');
+			$data['produk'] = $this->db->get()->result_array();
+
+			$data['cart'] = $this->cart->contents();
+
+			$data['kategori'] = $kate['nama_kategori'];
+
+			$this->load->view('template/header');
+			$this->load->view('shop/product', $data);
+			$this->load->view('template/footer');
+		}
+
 
 		function join(){
 			

@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = true;
 $route['shop/pembayaran/(:any)'] = 'shop/pembayaran/$1';
 $route['shop/konfirmasi_pembayaran/(:any)'] = 'shop/konfirmasi_pembayaran/$1';
 $route['shop/detail/(:any)'] = 'shop/detail/$1';
+$route['shop/prouduk/(:any)'] = 'shop/produk/$1';

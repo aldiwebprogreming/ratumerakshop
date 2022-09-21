@@ -128,10 +128,10 @@
 <li class="nav-item dropdown">
 	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">Product</a>
 	<div class="dropdown-menu">
-		<a class="dropdown-item" href="#">Beras Premium</a>
-		<a class="dropdown-item" href="#">Beras Medium</a>
-		<a class="dropdown-item" href="#">Beras Healthy</a>
-		<a class="dropdown-item" href="#"> Beras Glutinous</a>
+		<a class="dropdown-item" href="<?= base_url('shop/produk/premium-rice') ?>">Beras Premium</a>
+		<a class="dropdown-item" href="<?= base_url('shop/produk/medium-rice') ?>">Beras Medium</a>
+		<a class="dropdown-item" href="<?= base_url('shop/produk/healthy-rice') ?>">Beras Healthy</a>
+		<a class="dropdown-item" href="<?= base_url('shop/produk/glutinous-rice') ?>"> Beras Glutinous</a>
 	</div>
 </li>
 </ul>
