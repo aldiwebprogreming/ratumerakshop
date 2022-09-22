@@ -139,6 +139,35 @@
 			$this->session->set_flashdata('message', 'swal("Yess!", "User berhasil dihapus", "success" );');
 			redirect('admin/data_user');
 		}
+
+		function ubah_status_user(){
+
+			$id = $this->input->post('id');
+			$status = $this->input->post('status');
+
+			if ($status == 1) {
+				$st = 0;
+			}else{
+				$st = 1;
+			}
+
+			$this->db->where('id', $id);
+			$this->db->update('tbl_register',['status' => $st]);
+			$this->session->set_flashdata('message', 'swal("Yess!", "User berhasil diupdate", "success" );');
+			redirect('admin/data_user');
+		}
+
+		function data_order(){
+
+			$data['order'] = $this->db->get('tbl_order')->result_array();
+
+			$this->db->select_sum('total_harga');
+			$data['total'] = $this->db->get('tbl_order')->row_array();
+
+			$this->load->view('template_admin/header');
+			$this->load->View('admin/data_order', $data);
+			$this->load->view('template_admin/footer');
+		}
 	}
 
 ?>

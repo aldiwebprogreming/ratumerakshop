@@ -5,7 +5,7 @@
 
     <div class="card">
       <div class="card-body">
-        <h3 style="font-weight: bold;">Data User <i class="fas fa-users"></i></h3>
+        <h3 style="font-weight: bold;">Data Order <i class="fas fa-shopping-basket"></i></h3>
         <hr>
 
 
@@ -16,10 +16,13 @@
           <thead>
             <tr>
               <th>No</th>
+              <th>Kode Order</th>
               <th>Nama User</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Date Create</th>
+              <th>Nama Produk</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Qty</th>
+              <th>Total Harga</th>
               <th>Opsi</th>
             </tr>
           </thead>
@@ -27,30 +30,29 @@
             <?php 
             $no = 1;
             ?>
-            <?php foreach($user as $data){ ?>
+            <?php foreach($order as $data){ ?>
               <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data['name'] ?></td>
-                <td><?= $data['email'] ?></td>
-                <td>
-                  <?php if ($data['status'] == 1) {
-                    echo "Active";
-                  }else{
-                    echo "Non Active";
-                  }
-
-                  ?>
-                </td>
-                <td><?= $data['date'] ?></td>
+                <td><?= $data['kode_order'] ?></td>
+                <?php 
+                $user = $this->db->get_where('tbl_register',['kode_user' => $data['kode_user']])->row_array();
+                ?>
+                <td><?= $user['name'] ?></td>
+                <td><?= $data['nama_produk'] ?></td>
+                <?php 
+                $kt = $this->db->get_where('tbl_kategori',['kode_kategori' => $data['kategori']])->row_array();
+                ?>
+                <td><?= $kt['nama_kategori'] ?></td>
+                <td><?= $data['harga'] ?></td>
+                <td><?= $data['qty'] ?></td>
+                <td><?= $data['total_harga'] ?></td>
                 <td>
 
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?= $data['id'] ?>">
                     Hapus
                   </button>
 
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModaledit<?= $data['id'] ?>">
-                    Ubah Status
-                  </button>
+
 
 
                   <div class="modal fade" id="myModal<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,27 +80,7 @@
                     </div>
                   </div>
 
-                  <div class="modal fade" id="myModaledit<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Ubah Status</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <h5 class="text-center mb-3" style="font-weight: bold;">Apakah anda ingin mengupdate status ini ?</h5>
-                          <form method="post" action="<?= base_url('admin/ubah_status_user') ?>">
-                            <input type="hidden" name="status" value="<?= $data['status'] ?>">
-                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
-                            <button type="submit" class="btn btn-primary btn-block">Ubah Status</button>
-                          </form>
-                        </div>
 
-                      </div>
-                    </div>
-                  </div>
 
 
                 </td>
@@ -109,21 +91,19 @@
           </tbody>
           <tfoot>
             <tr>
-             <th>No</th>
-             <th>Nama User</th>
-             <th>Email</th>
-             <th>Status</th>
-             <th>Date Create</th>
-             <th>Opsi</th>
+              <th colspan="3">Total order</th>
+              <th class="text-center"><?= $no-1 ?> Order</th>
+              <th colspan="3">Total Pemasukan</th>
+              <th colspan="2" class="text-center"><?= "Rp " . number_format($total['total_harga'],0,',','.') ?></th>
+              
 
-           </tr>
-         </tfoot>
-       </table>
+            </tr>
+          </tfoot>
+        </table>
 
 
-     </div>
-   </div>
-
+      </div>
+    </div>
 
 
 
@@ -133,7 +113,8 @@
 
 
 
- </div>
+
+  </div>
 </div>
 <!-- /.content-wrapper -->
 

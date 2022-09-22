@@ -168,7 +168,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-          <a href="<?= base_url() ?>utama/" class="nav-link">
+          <a href="<?= base_url() ?>admin/" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -177,7 +177,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?= base_url() ?>utama/data_produk" class="nav-link">
+          <a href="<?= base_url() ?>admin/data_produk" class="nav-link">
             <i class="nav-icon fas fa-cart-plus"></i>
             <p>
              Data Produk
@@ -187,7 +187,7 @@
        </li>
 
        <li class="nav-item">
-        <a href="<?= base_url() ?>utama/data_user" class="nav-link">
+        <a href="<?= base_url() ?>admin/data_user" class="nav-link">
           <i class="nav-icon fas fa-shopping-bag"></i>
           <p>
             Data User
@@ -198,7 +198,7 @@
 
 
       <li class="nav-item">
-        <a href="<?= base_url() ?>utama/data_order" class="nav-link">
+        <a href="<?= base_url() ?>admin/data_order" class="nav-link">
           <i class="nav-icon fas fa-shopping-basket "></i>
           <p>
             Data Order
@@ -208,7 +208,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="<?= base_url() ?>utama/data_admin" class="nav-link">
+        <a href="<?= base_url() ?>admin/data_admin" class="nav-link">
           <i class="nav-icon fas fa-users"></i>
           <p>
             Data Admin
