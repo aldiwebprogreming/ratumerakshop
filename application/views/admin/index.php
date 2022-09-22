@@ -27,7 +27,7 @@
           <div class="col-sm-4">
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3 id="nof">343</h3>
+                <h3 id="nof"><?= $produk ?></h3>
 
                 <p>Data Produk</p>
               </div>
@@ -41,7 +41,7 @@
           <div class="col-sm-4">
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3 id="nof">33<h3>
+                <h3 id="nof"><?= $user ?><h3>
 
                   <p>Data User</p>
                 </div>
@@ -56,7 +56,7 @@
             <div class="col-sm-4">
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3 id="nof">33</h3>
+                  <h3 id="nof">0</h3>
 
                   <p>Data Order Hari Ini</p>
                 </div>
@@ -70,7 +70,7 @@
             <div class="col-sm-4">
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3 id="nof">53</h3>
+                  <h3 id="nof"><?= $order ?></h3>
 
                   <p>Data Order All</p>
                 </div>
@@ -88,7 +88,7 @@
             <div class="col-sm-4">
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3 id="nof">34343</h3>
+                  <h3 id="nof">0</h3>
 
                   <p>Total Pemasukan Hari Ini</p>
                 </div>
@@ -103,7 +103,7 @@
             <div class="col-sm-4">
               <div class="small-box bg-primary">
                 <div class="inner">
-                  <h3 id="nof">353</h3>
+                  <h3 id="nof"><?= $pemasukan_all['total_harga'] ?></h3>
 
                   <p>Total Pemasukan All</p>
                 </div>
@@ -117,7 +117,7 @@
             <div class="col-sm-4">
               <div class="small-box bg-secondary">
                 <div class="inner">
-                  <h3 id="nof">34</h3>
+                  <h3 id="nof">0</h3>
 
                   <p>Data Admin</p>
                 </div>

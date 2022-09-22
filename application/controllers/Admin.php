@@ -13,9 +13,16 @@
 
 		function index(){
 
+			$data['user'] = $this->db->get('tbl_register')->num_rows();
+			$data['order'] = $this->db->get('tbl_order')->num_rows();
+			// $data['admin'] = $this->db->get('tbl_admin')->num_rows();
+			$data['produk'] = $this->db->get('tbl_produk')->num_rows();
+
+			$this->db->select_sum('total_harga');
+			$data['pemasukan_all'] = $this->db->get('tbl_order')->row_array();
 
 			$this->load->view('template_admin/header');
-			$this->load->view('admin/index');
+			$this->load->view('admin/index', $data);
 			$this->load->view('template_admin/footer');
 		}
 
@@ -167,6 +174,33 @@
 			$this->load->view('template_admin/header');
 			$this->load->View('admin/data_order', $data);
 			$this->load->view('template_admin/footer');
+		}
+
+		function data_admin(){
+			$data['admin'] = $this->db->get('tbl_admin')->result_array();
+			$this->load->view('template_admin/header');
+			$this->load->View('admin/data_admin', $data);
+			$this->load->view('template_admin/footer');
+
+		}
+
+		function tambah_admin(){
+			$data = [
+				'username' => $this->input->post('username'),
+				'pass' => password_hash($this->input->post('pass'), PASSWORD_DEFAULT)
+			];
+
+			$this->db->insert('tbl_admin', $data);
+			$this->session->set_flashdata('message', 'swal("Yess!", "Admin berhasil ditambah", "success" );');
+			redirect('admin/data_admin');
+		}
+
+		function hapus_admin(){
+			$id = $this->input->post('id');
+			$this->db->where('id', $id);
+			$this->db->delete('tbl_admin');
+			$this->session->set_flashdata('message', 'swal("Yess!", "Admin berhasil dihapus", "success" );');
+			redirect('admin/data_admin');
 		}
 	}
 
