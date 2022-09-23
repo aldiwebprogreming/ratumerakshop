@@ -43,6 +43,13 @@
 				redirect('login/');
 			}
 		}
+
+
+		function logout(){
+			$this->session->unset_userdata('username');
+			$this->session->set_flashdata('message', 'swal("Yess!", "Anda berhasil logout", "success" );');
+			redirect('login/');
+		}
 	}
 
 ?>
