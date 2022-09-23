@@ -119,7 +119,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <input type="submit" name="edit" class="btn btn-primary" value="Edit Barang">
+                            <input type="submit" name="edit" class="btn btn-primary" value="Edit Kategori">
                           </div>
                         </form>
 

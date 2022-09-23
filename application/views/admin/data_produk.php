@@ -89,16 +89,16 @@
                 <td><?= $data['date'] ?></td>
                 <td>
 
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?= $data['id'] ?>">
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?= $data['kode_produk'] ?>">
                     Hapus
                   </button>
 
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModaledit<?= $data['id'] ?>">
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModaledit<?= $data['kode_produk'] ?>">
                     Edit
                   </button>
 
 
-                  <div class="modal fade" id="myModal<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="myModal<?= $data['kode_produk'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -110,7 +110,7 @@
                         <div class="modal-body">
                           Apakah anda ingin menghapus data ini?
                           <form method="post" action="<?= base_url('admin/hapus_produk') ?>">
-                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                            <input type="hidden" name="id" value="<?= $data['kode_produk'] ?>">
 
                             
                           </div>
@@ -123,7 +123,7 @@
                     </div>
                   </div>
 
-                  <div class="modal fade" id="myModaledit<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="myModaledit<?= $data['kode_produk'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -135,7 +135,8 @@
                         <div class="modal-body">
 
 
-                         <form method="post" action="">
+                         <form method="post" action="<?= base_url('admin/edit_produk') ?>" enctype="multipart/form-data">
+                          <input type="hidden" name="kode_produk" value="<?= $data['kode_produk'] ?>">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Nama Produk</label>
                             <input type="text" class="form-control" placeholder="Nama produk" name="nama_produk" value="<?= $data['nama_produk'] ?>" required>
@@ -158,7 +159,7 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" required="" placeholder="Keterangan"><?= $data['ket'] ?></textarea>
+                            <textarea class="form-control" name="ket" required="" placeholder="Keterangan"><?= $data['ket'] ?></textarea>
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Gambar Produk</label>

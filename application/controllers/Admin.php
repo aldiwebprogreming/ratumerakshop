@@ -74,11 +74,63 @@
 		function hapus_produk(){
 
 			$id = $this->input->post('id');
-			$this->db->where('id', $id);
+			$this->db->where('kode_produk', $id);
 			$this->db->delete('tbl_produk');
 
 			$this->session->set_flashdata('message', 'swal("Yess!", "Produk berhasil dihapus", "success" );');
 			redirect('admin/data_produk');
+		}
+
+		function edit_produk(){
+
+			$config['upload_path']          = './assets/img/products/';
+			$config['allowed_types']        = 'jpg|png|jpeg';
+			$config['min_size']             = 9000000;
+			$config['remove_spaces']        = false;
+
+			if ($_FILES['gambar']['name'] == null) {
+				
+				$data = [
+
+					'nama_produk' => $this->input->post('nama_produk'),
+					'kategori' => $this->input->post('kategori'),
+					'harga' => $this->input->post('harga'),
+					'ket' => $this->input->post('ket'),
+				];
+
+				$kode_produk = $this->input->post('kode_produk');
+				$this->db->where('kode_produk', $kode_produk);
+				$this->db->update('tbl_produk', $data);
+				$this->session->set_flashdata('message', 'swal("Yess!", "Produk berhasil diubah", "success" );');
+				redirect('admin/data_produk');
+			}else{
+
+				$this->load->library('upload', $config);
+				if (!$this->upload->do_upload('gambar')){
+					$error = array('error' => $this->upload->display_errors());
+					$this->session->set_flashdata('message', 'swal("Opps", "file gambar anda tidak suport", "warning" );');
+					redirect('admin/data_produk');
+
+				}else{
+
+					$data = [
+
+						'nama_produk' => $this->input->post('nama_produk'),
+						'kategori' => $this->input->post('kategori'),
+						'harga' => $this->input->post('harga'),
+						'ket' => $this->input->post('ket'),
+						'gambar' => $_FILES['gambar']['name'],
+					];
+
+					$kode_produk = $this->input->post('kode_produk');
+					$this->db->where('kode_produk', $kode_produk);
+					$this->db->update('tbl_produk', $data);
+					$this->session->set_flashdata('message', 'swal("Yess!", "Produk berhasil diubah", "success" );');
+					redirect('admin/data_produk');
+				}
+			}
+
+			
 		}
 
 		function data_kategori(){

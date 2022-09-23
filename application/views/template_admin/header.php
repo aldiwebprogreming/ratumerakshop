@@ -187,6 +187,16 @@
        </li>
 
        <li class="nav-item">
+        <a href="<?= base_url() ?>admin/data_kategori" class="nav-link">
+          <i class="nav-icon fas fa-list"></i>
+          <p>
+            Data Kategori Produk
+            <span class="badge badge-info right"></span>
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a href="<?= base_url() ?>admin/data_user" class="nav-link">
           <i class="nav-icon fas fa-shopping-bag"></i>
           <p>
