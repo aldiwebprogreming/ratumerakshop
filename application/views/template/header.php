@@ -78,6 +78,10 @@
 						<a class="navbar-brand mr-lg-5" href="./index.html">
 							<i class="fa fa-shopping-bag fa-2x"></i> <span class="logo">Ratumerakshop</span>
 						</a>
+						<!-- <div class="single-icon shopping-cart" id="cartshop">
+							<a href="#"><i class="fa fa-shopping-cart fa-2x" id="cart" data-toggle="modal" data-target="#exampleModal"></i></a>
+							<span class="badge badge-default" id="tampil_data"><?=  count($this->cart->contents()); ?></span>
+						</div> -->
 					</div>
 					<div class="col-lg-7 col-12 col-sm-6">
 						<form action="#" class="search">
@@ -92,12 +96,12 @@
 						</form>
 					</div>
 					<div class="col-lg-2 col-12 col-sm-6">
-						<div class="right-icons pull-right d-none d-lg-block">
+						<div class="right-icons pull-right  d-lg-block">
 							<div class="single-icon wishlist">
 								<a href="#"><i class="fa fa-heart-o fa-2x"></i></a>
 								<span class="badge badge-default">0</span>
 							</div>
-							<div class="single-icon shopping-cart">
+							<div class="single-icon shopping-cart" id="cartmobile">
 								<a href="#"><i class="fa fa-shopping-cart fa-2x" id="cart" data-toggle="modal" data-target="#exampleModal"></i></a>
 								<span class="badge badge-default" id="tampil_data"><?=  count($this->cart->contents()); ?></span>
 							</div>

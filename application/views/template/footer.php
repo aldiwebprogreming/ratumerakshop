@@ -197,6 +197,49 @@
 })
 </script>
 
+<style>
+
+    @media (min-width: 576px) {
+
+        #cartshop{
+
+            display: none;
+        }
+    }
+
+</style>
+
+
+<style>
+
+    @media (max-width: 576px) {
+        #navkategori{
+            display: none;
+        }
+    }
+
+</style>
+
+<style>
+
+    @media (max-width: 576px) {
+        #detket{
+            display: none;
+        }
+    }
+
+</style>
+
+<!-- <style>
+
+    @media (max-width: 576px) {
+        #cartmobile{
+            display: none;
+        }
+    }
+
+</style>
+-->
 </body>
 
 </html>

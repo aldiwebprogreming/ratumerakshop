@@ -1,9 +1,9 @@
  <?php foreach ($cart as $data) { ?>
     <div class="col-sm-3">
         <img src="<?= base_url('') ?>/assets/img/products/<?= $data['gambar'] ?>" class="img-fluid" style="height: 100px;">
-        <center>
-            <a href="<?= base_url('shop/hapus_cart?id=') ?><?= $data['rowid'] ?>" class="btn btn-danger btn-sm mt-3" id="deletecart">Delete <i class="fa fa-trash"></i></a>
-        </center>
+        <br>
+        <a href="<?= base_url('shop/hapus_cart?id=') ?><?= $data['rowid'] ?>" class="btn btn-danger btn-sm mt-3" id="deletecart">Delete <i class="fa fa-trash"></i></a>
+
     </div>
     <div class="col-sm-9">
         <p style="font-weight: bold;"><?= $data['name'] ?></p>

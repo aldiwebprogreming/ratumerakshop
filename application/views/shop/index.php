@@ -5,7 +5,7 @@ SLIDER
         <div class="slider-inner">
             <div class="row">
                 <div class="col-md-3">
-                    <nav class="nav-category">
+                    <nav class="nav-category" id="navkategori">
                         <h2>Categories</h2>
                         <ul class="menu-category">
                             <li><a href="<?= base_url('shop/produk/premium-rice') ?>">Premium Rice</a></li>
@@ -52,7 +52,7 @@ SLIDER
 </section>
 
 <!-- Services -->
-<section class="pt-5 pb-5">
+<section class="pt-5 pb-5" id="detket">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -98,6 +98,100 @@ SLIDER
     </div>
 </section>
 <!-- End Services -->
+
+<!-- Menu mobile -->
+<section class="pt-5 pb-5" id="menumobile">
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+              <strong>Hello, </strong>Pesan beras tanpa keluar rumah dengan ratumerakshop.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="col-3">
+            <center>
+                <img src="<?= base_url('assets/img/brand/rice.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Premium</small>
+            </center>
+        </div>
+        <div class="col-3">
+            <center>
+                <img src="<?= base_url('assets/img/brand/rice2.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Medium</small>
+            </center>
+        </div>
+        <div class="col-3">
+            <center>
+                <img src="<?= base_url('assets/img/brand/rice3.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Healthy</small>
+            </center>
+        </div>
+        <div class="col-3">
+            <center>
+                <img src="<?= base_url('assets/img/brand/rice4.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Glutinous</small>
+            </center>
+        </div>
+        <div class="col-3 mt-1">
+            <center>
+                <img src="<?= base_url('assets/img/brand/promo.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Promo</small>
+            </center>
+        </div>
+
+        <div class="col-3 mt-1">
+            <center>
+                <img src="<?= base_url('assets/img/brand/aff.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                <small>Afiliasi</small>
+            </center>
+        </div>
+
+            <!-- <div class="col-md-4">
+                <div class="media">
+                    <div class="iconbox iconmedium rounded-circle text-info mr-4">
+                        <i class="fa fa-truck"></i>
+                    </div>
+                    <div class="media-body">
+                        <h5>Fast Shipping</h5>
+                        <p class="text-muted">
+                            All you have to do is to bring your passion. We take care of the rest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="media">
+                    <div class="iconbox iconmedium rounded-circle text-purple mr-4">
+                        <i class="fa fa-credit-card-alt"></i>
+                    </div>
+                    <div class="media-body">
+                        <h5>Online Payment</h5>
+                        <p class="text-muted">
+                            All you have to do is to bring your passion. We take care of the rest.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="media">
+                    <div class="iconbox iconmedium rounded-circle text-warning mr-4">
+                        <i class="fa fa-refresh"></i>
+                    </div>
+                    <div class="media-body">
+                        <h5>Free Return</h5>
+                        <p class="text-muted">
+                            All you have to do is to bring your passion. We take care of the rest.
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+
+
 <section class="products-grids trending pb-4">
     <div class="container">
         <div class="row">
