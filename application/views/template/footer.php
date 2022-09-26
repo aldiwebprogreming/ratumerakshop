@@ -197,6 +197,14 @@
 })
 </script>
 
+<script>
+    $(document).ready(function(){
+        $("#register").click(function(){
+            $("#load").show();
+        })
+    })
+</script>
+
 <style>
 
     @media (min-width: 576px) {
@@ -230,16 +238,31 @@
 
 </style>
 
-<!-- <style>
+<style>
+
+    @media (min-width: 576px) {
+        #menumobile{
+            display: none;
+
+        }
+    }
+
+</style>
+
+<style>
 
     @media (max-width: 576px) {
-        #cartmobile{
+        .wishlist{
+            display: none;
+
+        }
+        .contact-info{
             display: none;
         }
     }
 
 </style>
--->
+
 </body>
 
 </html>

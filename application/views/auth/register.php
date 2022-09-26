@@ -30,6 +30,11 @@
                             <small class="text-danger"><?php echo form_error('name'); ?></small>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Nomor whatsapp</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0811XXXX" name="no_wa"  value="<?php echo set_value('no_wa'); ?>">
+                            <small class="text-danger"><?php echo form_error('no_wa'); ?></small>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"  value="<?php echo set_value('email'); ?>">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -50,8 +55,8 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div> -->
-                        <button type="submit" class="btn btn-primary btn-block mt-2">Register <i class="fa fa-user"></i></button>
-                        <small class="mt-2 float-left">Sudah punya akun ? silahkan <a href="<?= base_url('auth/login') ?>">login</a></small>
+                        <button type="submit" class="btn btn-primary btn-block mt-2" id="register">Register <i class="fa fa-user"></i>  <i class="fas fa-spinner fa-spin" id="load" style="display:none;"></i></button>
+                        <small class="mt-2 float-left">Sudah punya akun ? silahkan <a href="<?= base_url('auth/login') ?>">login</a></small> 
                     </form>
                 </div>
 
@@ -76,6 +81,8 @@
 
 </div>
 </section>
+
+
 
 
 

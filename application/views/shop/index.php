@@ -111,41 +111,53 @@ SLIDER
         </div>
         <div class="col-3">
             <center>
-                <img src="<?= base_url('assets/img/brand/rice.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
-                <small>Premium</small>
+                <a href="<?= base_url('shop/produk/premium-rice') ?>">
+                    <img src="<?= base_url('assets/img/brand/rice.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+                    <small>Premium</small>
+                </a>
             </center>
         </div>
         <div class="col-3">
             <center>
+               <a href="<?= base_url('shop/produk/medium-rice') ?>">
                 <img src="<?= base_url('assets/img/brand/rice2.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
                 <small>Medium</small>
-            </center>
-        </div>
-        <div class="col-3">
-            <center>
-                <img src="<?= base_url('assets/img/brand/rice3.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
-                <small>Healthy</small>
-            </center>
-        </div>
-        <div class="col-3">
-            <center>
-                <img src="<?= base_url('assets/img/brand/rice4.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
-                <small>Glutinous</small>
-            </center>
-        </div>
-        <div class="col-3 mt-1">
-            <center>
-                <img src="<?= base_url('assets/img/brand/promo.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
-                <small>Promo</small>
-            </center>
-        </div>
+            </a>
+        </center>
+    </div>
+    <div class="col-3">
+        <center>
+         <a href="<?= base_url('shop/produk/healthy-rice') ?>">
+            <img src="<?= base_url('assets/img/brand/rice3.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+            <small>Healthy</small>
+        </a>
+    </center>
+</div>
+<div class="col-3">
+    <center>
+     <a href="<?= base_url('shop/produk/glutinous-rice') ?>">
+        <img src="<?= base_url('assets/img/brand/rice4.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+        <small>Glutinous</small>
+    </a>
+</center>
+</div>
+<div class="col-3 mt-1">
+    <center>
+       <a href="<?= base_url('shop/produk/spesial-promo-product') ?>">
+        <img src="<?= base_url('assets/img/brand/promo.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+        <small>Promo</small>
+    </a>
+</center>
+</div>
 
-        <div class="col-3 mt-1">
-            <center>
-                <img src="<?= base_url('assets/img/brand/aff.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
-                <small>Afiliasi</small>
-            </center>
-        </div>
+<div class="col-3 mt-1">
+    <center>
+       <a target="_blank" href="https://ratumerak.id/reffral/member-69887">
+        <img src="<?= base_url('assets/img/brand/aff.png') ?>" class="img-fluid" alt="Responsive image" style="height: 50px;">
+        <small>Afiliasi</small>
+    </a>
+</center>
+</div>
 
             <!-- <div class="col-md-4">
                 <div class="media">

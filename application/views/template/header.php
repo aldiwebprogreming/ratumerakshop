@@ -12,6 +12,8 @@
 	href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
 	rel="stylesheet">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<!-- Icons -->
 	<link href="<?= base_url('') ?>/assets/css/nucleo-icons.css" rel="stylesheet">
 	<link href="<?= base_url('') ?>/assets/css/font-awesome.css" rel="stylesheet">
@@ -41,16 +43,16 @@
 
 <body>
 	<header class="header clearfix">
-		<div class="top-bar d-none d-sm-block">
+		<div class="top-bar  d-sm-block">
 			<div class="container">
 				<div class="row">
-					<div class="col-6 text-left">
+					<div class="col-sm-6 text-left">
 						<ul class="top-links contact-info">
 							<li><i class="fa fa-envelope-o"></i> <a href="#">berasgenthong19@gmail.com</a></li>
 							<li><i class="fa fa-whatsapp"></i> +6283138184143</li>
 						</ul>
 					</div>
-					<div class="col-6 text-right">
+					<div class="col-sm-6 text-right">
 						<ul class="top-links account-links">
 							<?php if ($this->session->email == null) { ?>
 								<li><i class="fa fa-user-circle-o"></i> <a href="<?= base_url('auth/register') ?>">Register</a></li>
@@ -83,7 +85,7 @@
 							<span class="badge badge-default" id="tampil_data"><?=  count($this->cart->contents()); ?></span>
 						</div> -->
 					</div>
-					<div class="col-lg-7 col-12 col-sm-6">
+					<div class="col-lg-7 col-11 col-sm-6">
 						<form action="#" class="search">
 							<div class="input-group w-100">
 								<input type="text" class="form-control" placeholder="Search">
@@ -95,7 +97,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-lg-2 col-12 col-sm-6">
+					<div class="col-lg-2 col-1 col-sm-6">
 						<div class="right-icons pull-right  d-lg-block">
 							<div class="single-icon wishlist">
 								<a href="#"><i class="fa fa-heart-o fa-2x"></i></a>

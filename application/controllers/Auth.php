@@ -61,6 +61,7 @@
 			$this->load->library('form_validation');
 
 			$this->form_validation->set_rules('name', 'name', 'required');
+			$this->form_validation->set_rules('no_wa', 'whatsapp', 'required|numeric|max_length[13]|min_length[11]|is_unique[tbl_register.no_wa]');
 			$this->form_validation->set_rules('email', 'email', 'required|is_unique[tbl_register.email]');
 			$this->form_validation->set_rules('pass', 'password', 'required|min_length[6]');
 			$this->form_validation->set_rules('pass1', 'confirm password', 'required|matches[pass]|min_length[6]');
@@ -76,6 +77,7 @@
 				$otp = rand(10, 10000);
 				$data = [
 					'kode_user' => "user-".rand(10, 10000),
+					'no_wa' => $this->input->post('no_wa'),
 					'name' => $this->input->post('name'),
 					'email' => $this->input->post('email'),
 					'pass' => password_hash($this->input->post('pass'), PASSWORD_DEFAULT),
@@ -83,7 +85,7 @@
 				];
 
 				$input = $this->db->insert('tbl_register', $data);
-				// $this->sendemail($this->input->post('email'), $otp);
+				$this->sendwa($this->input->post('no_wa'), $otp);
 				$this->session->set_flashdata('message', 'swal("Yess", "Regiser anda berhasil", "success" );');
 				redirect('Auth/otp');
 			}
@@ -161,12 +163,12 @@
 		}
 
 
-		function sendwa(){
+		function sendwa($wa, $otp){
 		$api_key   = '2ad1c6ff045383d38f2ba7f13ad9d225f5794930'; // API KEY Anda
 		$id_device = '6845'; // ID DEVICE yang di SCAN (Sebagai pengirim)
 		$url   = 'https://api.watsap.id/send-message'; // URL API
-		$no_hp = '083854872915'; // No.HP yang dikirim (No.HP Penerima)
-		$pesan = '😁 Halo Terimakasih 🙏'; // Pesan yang dikirim
+		$no_hp = $wa; // No.HP yang dikirim (No.HP Penerima)
+		$pesan = '😁 Terimakasi sudah melakukan registrasi 🙏. Kode OTP anda adalah : '.$otp; // Pesan yang dikirim
 
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $url);
