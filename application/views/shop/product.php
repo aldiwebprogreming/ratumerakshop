@@ -25,12 +25,12 @@
             </div>
         </div>
         <?php if ($produk == false) { ?>
-           <center>
+         <center>
             <img src="<?= base_url('assets/img/brand/not2.png') ?>" class="img-fluid" alt="Responsive image" style="height: 200px;">
             <h4 class="text-center">Produk <?= $kategori ?> belum tersdia ...</h4>
         </center>
     <?php }else{ ?>
-     <div class="row mt-4">
+       <div class="row mt-4">
 
 
         <?php foreach ($produk as $data) { ?>
@@ -44,8 +44,8 @@
                         </center>
                     </div>
                     <div class="product-content">
-                     <p class="text-center"><?= $data['nama_produk'] ?></p>
-                     <center>
+                       <p class="text-center"><?= $data['nama_produk'] ?></p>
+                       <center>
                         <small><i><?= $data['nama_kategori'] ?></i></small>
                     </center>
                     <div class="product-price">
@@ -63,7 +63,7 @@
                                 <input type="hidden" name="nama_kategori" id="nama_kategori<?= $data['kode_produk'] ?>" value="<?= $data['nama_kategori'] ?>">
                                 <input type="hidden" name="harga" id="harga<?= $data['kode_produk'] ?>" value="<?= $data['harga'] ?>">
                             </form>
-                            <button type="button" id="addcart<?= $data['kode_produk'] ?>" class="btn btn-primary btn-sm btn-block addcart" data-toggle="modal" data-target="#exampleModal<?= $data['kode_produk'] ?>">
+                            <button type="button" id="addcart<?= $data['kode_produk'] ?>" class="btn btn-primary btn-sm btn-block addcart">
                                 Add to cart
                             </button>
                         </center>
@@ -75,34 +75,36 @@
             </div>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function(){
+
+                $("#addcart<?= $data['kode_produk'] ?>").click(function(){
+
+                    var qty1 = $("#qty<?= $data['kode_produk'] ?>").val();
+                    var kode_produk1 = "<?= $data['kode_produk'] ?>";
+                    var nama_produk1 = $("#nama_produk<?= $data['kode_produk'] ?>").val();
+                    var nama_kategori1 = $("#nama_kategori<?= $data['kode_produk'] ?>").val();
+                    var harga1 = $("#harga<?= $data['kode_produk'] ?>").val();
+
+                    var url = "<?= base_url('shop/cart?kode_produk=') ?>"+kode_produk1+"&harga="+harga1+"&qty="+qty1;
+                    var url2 = "<?= base_url('shop/cart2') ?>";
+                    $("#tampil_data").load(url);
+                    $("#tampil_data_footer").load(url2);
+
+
+                })
+
+
+            })
+        </script>
+
     <?php } ?>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <script>
-        $(document).ready(function(){
-
-            $("#addcart<?= $data['kode_produk'] ?>").click(function(){
-
-                var qty1 = $("#qty<?= $data['kode_produk'] ?>").val();
-                var kode_produk1 = "<?= $data['kode_produk'] ?>";
-                var nama_produk1 = $("#nama_produk<?= $data['kode_produk'] ?>").val();
-                var nama_kategori1 = $("#nama_kategori<?= $data['kode_produk'] ?>").val();
-                var harga1 = $("#harga<?= $data['kode_produk'] ?>").val();
-
-                var url = "<?= base_url('shop/cart?kode_produk=') ?>"+kode_produk1+"&harga="+harga1+"&qty="+qty1;
-                var url2 = "<?= base_url('shop/cart2') ?>";
-                $("#tampil_data").load(url);
-                $("#tampil_data_footer").load(url2);
-
-
-            })
-
-
-        })
-    </script>
 
 <?php } ?>
 
