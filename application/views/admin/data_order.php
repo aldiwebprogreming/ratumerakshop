@@ -18,11 +18,10 @@
               <th>No</th>
               <th>Kode Order</th>
               <th>Nama User</th>
-              <th>Nama Produk</th>
-              <th>Kategori</th>
-              <th>Harga</th>
-              <th>Qty</th>
-              <th>Total Harga</th>
+              <th>No Hp</th>
+              <th>Sistem Pengambilan</th>
+              <th>Tgl Pengantaran / Penjemputan</th>
+              <th>Total Pembyaran</th>
               <th>Opsi</th>
             </tr>
           </thead>
@@ -38,19 +37,17 @@
                 $user = $this->db->get_where('tbl_register',['kode_user' => $data['kode_user']])->row_array();
                 ?>
                 <td><?= $user['name'] ?></td>
-                <td><?= $data['nama_produk'] ?></td>
-                <?php 
-                $kt = $this->db->get_where('tbl_kategori',['kode_kategori' => $data['kategori']])->row_array();
-                ?>
-                <td><?= $kt['nama_kategori'] ?></td>
-                <td><?= $data['harga'] ?></td>
-                <td><?= $data['qty'] ?></td>
-                <td><?= $data['total_harga'] ?></td>
+                <td><?= $data['wa'] ?></td>
+                <td><?= $data['sistem_pengambilan'] ?></td>
+                <td><?= $data['tgl_pengantaran'] ?></td>
+                <td><?= $data['jumlah_pembayaran'] ?></td>
                 <td>
 
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<?= $data['id'] ?>">
                     Hapus
                   </button>
+
+                  <a href="<?= base_url('admin/detail_order/') ?><?= $data['kode_order'] ?>" class="btn btn-primary btn-sm mt-2">Detail</a>
 
 
 
@@ -90,14 +87,7 @@
 
           </tbody>
           <tfoot>
-            <tr>
-              <th colspan="3">Total order</th>
-              <th class="text-center"><?= $no-1 ?> Order</th>
-              <th colspan="3">Total Pemasukan</th>
-              <th colspan="2" class="text-center"><?= "Rp " . number_format($total['total_harga'],0,',','.') ?></th>
-              
 
-            </tr>
           </tfoot>
         </table>
 

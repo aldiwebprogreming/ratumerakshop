@@ -25,12 +25,12 @@
             </div>
         </div>
         <?php if ($produk == false) { ?>
-         <center>
+           <center>
             <img src="<?= base_url('assets/img/brand/not2.png') ?>" class="img-fluid" alt="Responsive image" style="height: 200px;">
             <h4 class="text-center">Produk <?= $kategori ?> belum tersdia ...</h4>
         </center>
     <?php }else{ ?>
-       <div class="row mt-4">
+     <div class="row mt-4">
 
 
         <?php foreach ($produk as $data) { ?>
@@ -44,8 +44,8 @@
                         </center>
                     </div>
                     <div class="product-content">
-                       <p class="text-center"><?= $data['nama_produk'] ?></p>
-                       <center>
+                     <p class="text-center"><?= $data['nama_produk'] ?></p>
+                     <center>
                         <small><i><?= $data['nama_kategori'] ?></i></small>
                     </center>
                     <div class="product-price">

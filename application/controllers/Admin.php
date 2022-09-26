@@ -221,14 +221,43 @@
 
 		function data_order(){
 
-			$data['order'] = $this->db->get('tbl_order')->result_array();
+			// $data['order'] = $this->db->get('tbl_order')->result_array();
 
-			$this->db->select_sum('total_harga');
-			$data['total'] = $this->db->get('tbl_order')->row_array();
+			// $this->db->select_sum('total_harga');
+			// $data['total'] = $this->db->get('tbl_order')->row_array();
+
+			$data['order'] = $this->db->get('tbl_checkout')->result_array();
 
 			$this->load->view('template_admin/header');
 			$this->load->View('admin/data_order', $data);
 			$this->load->view('template_admin/footer');
+		}
+
+		function detail_order($kode_order){
+
+			$data['order'] = $this->db->get_where('tbl_checkout',['kode_order' => $kode_order])->row_array();
+
+			$data['detail_order'] = $this->db->get_where('tbl_order',['kode_order' => $kode_order])->result_array();
+
+			$data['bukti'] = $this->db->get_where('tbl_bukti_pembayaran', ['kode_order' => $kode_order])->row_array();
+
+			$this->load->view('template_admin/header');
+			$this->load->view('admin/detail_order', $data);
+			$this->load->view('template_admin/footer');
+
+		}
+
+		function ubah_status(){
+
+			$kode_order = $this->input->post('kode_order');
+
+			$data = [
+				'status_pembayaran' => 1
+			];
+			$this->db->where('kode_order', $kode_order);
+			$this->db->update('tbl_checkout', $data);
+			$this->session->set_flashdata('message', 'swal("Yess!", "Status pembayaran sudah diupdate", "success" );');
+			redirect("admin/detail_order/$kode_order");
 		}
 
 		function data_admin(){
@@ -257,6 +286,7 @@
 			$this->session->set_flashdata('message', 'swal("Yess!", "Admin berhasil dihapus", "success" );');
 			redirect('admin/data_admin');
 		}
+
 	}
 
 ?>
